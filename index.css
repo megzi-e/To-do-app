@@ -1,0 +1,104 @@
+body {
+  background-color: #f5f5f5;
+  font-family: "DM Mono", sans-serif;
+  padding: 0px;
+  margin: 0px;
+  background-image: radial-gradient(#e0e0e0, transparent 3px);
+  background-size: 30px 30px;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  margin-top: 250px;
+  height: 100vh;
+  padding: 24px, 24px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 320px;
+}
+
+.input {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+#task-input {
+  border: solid 1px #e5e5e5;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+  height: 40px;
+  padding: 0px 16px;
+  box-sizing: border-box;
+  margin: 0px;
+  color: #838385;
+  flex: 1;
+  font-family: "DM Mono";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+#task-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  background-color: #229eff;
+  padding: 0px;
+}
+
+.todolist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* listitems */
+
+.listitem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  border: solid 1px #e5e5e5;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+
+.listname {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+#task-name {
+  color: #838385;
+  font-family: "DM Mono";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  margin: 0px;
+}
+
+#delete-btn {
+  height: 20px;
+  width: 20px;
+  border: none;
+  padding: 0px;
+  background-color: white;
+}
+
+#checkbox {
+    width: 16px;
+    height: 16px;
+}
