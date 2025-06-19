@@ -43,6 +43,11 @@ body {
   line-height: 18px;
 }
 
+#task-input:focus{
+  border: solid 2px #229eff;
+  outline: none;
+}
+
 #task-btn {
   width: 40px;
   height: 40px;
