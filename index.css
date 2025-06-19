@@ -46,6 +46,7 @@ body {
 #task-input:focus{
   border: solid 2px #229eff;
   outline: none;
+  color: black;
 }
 
 #task-btn {
