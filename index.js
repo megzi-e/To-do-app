@@ -10,6 +10,10 @@ if (myTasks){
 }
 
 taskBtn.addEventListener("click", function () {
+
+  const value = inputEL.value.trim();
+  if (value === "") return;
+
   tasks.push(inputEL.value);
   inputEL.value = "";
   localStorage.setItem("mytasks", JSON.stringify(tasks));
