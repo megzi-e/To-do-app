@@ -6,11 +6,10 @@ body {
   background-image: radial-gradient(#e0e0e0, transparent 3px);
   background-size: 30px 30px;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
-  margin-top: 250px;
   height: 100vh;
-  padding: 24px, 24px;
+  box-sizing: border-box;
+  padding: 250px 24px 24px 24px;
 }
 
 .container {
@@ -116,4 +115,5 @@ body {
 #checkbox {
     width: 16px;
     height: 16px;
+    margin: 0px;
 }
