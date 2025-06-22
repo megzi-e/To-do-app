@@ -17,7 +17,6 @@ taskBtn.addEventListener("click", function () {
   inputEL.value = "";
   localStorage.setItem("mytasks", JSON.stringify(tasks));
   render(tasks);
-  deletBtn();
 });
 
 function render(task) {
@@ -90,6 +89,21 @@ function render(task) {
     });
   }
 
+  const checkTask = document.querySelectorAll("#checkbox");
+
+  for (let i = 0; i < checkTask.length; i++) {
+    checkTask[i].addEventListener("change", function () {
+      const parent = this.parentElement;
+      const taskText = parent.querySelector("p");
+
+      if (this.checked) {
+        taskText.style.textDecoration = "line-through";
+      } else {
+        taskText.style.textDecoration = "none";
+      }
+    });
+  }
+
   const deleteAll = document.getElementById("delete-all");
 
   if (deleteAll) {
@@ -99,6 +113,4 @@ function render(task) {
       render(tasks);
     });
   }
-
-  
 }
