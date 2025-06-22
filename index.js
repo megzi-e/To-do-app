@@ -2,15 +2,15 @@ let tasks = [];
 const taskBtn = document.getElementById("task-btn");
 const inputEL = document.getElementById("task-input");
 const todoList = document.querySelector(".todolist");
-let myTasks = JSON.parse(localStorage.getItem("mytasks" ))
+let myTasks = JSON.parse(localStorage.getItem("mytasks"));
+let deletAll = document.getElementById("delete-all");
 
-if (myTasks){
-    tasks = myTasks
-    render(tasks)
+if (myTasks) {
+  tasks = myTasks;
+  render(tasks);
 }
 
 taskBtn.addEventListener("click", function () {
-
   const value = inputEL.value.trim();
   if (value === "") return;
 
@@ -18,6 +18,7 @@ taskBtn.addEventListener("click", function () {
   inputEL.value = "";
   localStorage.setItem("mytasks", JSON.stringify(tasks));
   render(tasks);
+  deletBtn();
 });
 
 function render(task) {
@@ -69,8 +70,14 @@ function render(task) {
               />
             </svg>
           </button>
-        </div>`;
+        </div>
+        `;
   }
+
+  if (task.length > 0) {
+    taskList += `<button id="delete-all">Delete all</button>`;
+  }
+
   todoList.innerHTML = taskList;
 
   const deleteButtons = document.querySelectorAll("#delete-btn");

@@ -8,6 +8,7 @@ body {
   display: flex;
   justify-content: center;
   min-height: 100vh;
+  min-width: 350px;
   box-sizing: border-box;
   padding: 250px 24px 24px 24px;
 }
@@ -116,4 +117,23 @@ body {
     width: 16px;
     height: 16px;
     margin: 0px;
+}
+
+#delete-all{
+  background-color: #FF3B30;
+  border: none;
+  height: 56px;
+  border-radius: 8px;
+  font-family: "DM Mono";
+  color: white;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+
+}
+
+#delete-all:hover{
+background-color:#CD2F26 ;
+cursor: pointer;
 }
