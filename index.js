@@ -3,7 +3,6 @@ const taskBtn = document.getElementById("task-btn");
 const inputEL = document.getElementById("task-input");
 const todoList = document.querySelector(".todolist");
 let myTasks = JSON.parse(localStorage.getItem("mytasks"));
-let deletAll = document.getElementById("delete-all");
 
 if (myTasks) {
   tasks = myTasks;
@@ -90,4 +89,16 @@ function render(task) {
       render(tasks);
     });
   }
+
+  const deleteAll = document.getElementById("delete-all");
+
+  if (deleteAll) {
+    deleteAll.addEventListener("click", function () {
+      tasks = [];
+      localStorage.clear();
+      render(tasks);
+    });
+  }
+
+  
 }
