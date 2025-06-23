@@ -90,7 +90,7 @@ body {
   align-items: center;
 }
 
-#task-name {
+.task-name {
   color: #838385;
   font-family: "DM Mono";
   font-size: 16px;
@@ -130,6 +130,7 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
+  padding: 0;
 
 
 }
@@ -137,4 +138,19 @@ body {
 #delete-all:hover{
 background-color:#CD2F26 ;
 cursor: pointer;
+}
+
+.edit-input {
+  all: unset; /* resets all default input styles */
+  font-size: 16px;  /* match this to your <p> styles */
+  font-family: inherit;
+  line-height: 18px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  cursor: text;
+}
+
+.edit-input:focus {
+  outline: none;
 }

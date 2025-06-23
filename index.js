@@ -9,6 +9,15 @@ if (myTasks) {
   render(tasks);
 }
 
+inputEL.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    tasks.push(inputEL.value);
+    localStorage.setItem("mytasks", JSON.stringify(tasks));
+    render(tasks);
+  }
+  if (value === "") return;
+});
+
 taskBtn.addEventListener("click", function () {
   const value = inputEL.value.trim();
   if (value === "") return;
@@ -26,7 +35,7 @@ function render(task) {
     taskList += `<div class="listitem">
             <div class="listname">
               <input type="checkbox" id="checkbox">
-              <p id="task-name">${task[i]} </p>  
+              <p class="task-name">${task[i]} </p>  
             </div>
           <button id="delete-btn" data-index="${i}">
             <svg
@@ -111,6 +120,43 @@ function render(task) {
       tasks = [];
       localStorage.clear();
       render(tasks);
+    });
+  }
+
+  const editabletext = document.querySelectorAll(".task-name");
+
+  for (let i = 0; i < editabletext.length; i++) {
+    const taskEl = editabletext[i];
+
+    taskEl.addEventListener("click", function () {
+      const currentText = taskEl.textContent;
+      const input = document.createElement("input");
+
+      input.type = "text";
+      input.value = currentText;
+      input.className = "edit-input";
+      input.value.trim()
+
+      taskEl.replaceWith(input);
+      input.focus();
+
+      input.addEventListener("blur", saveEdit);
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          saveEdit();
+        }
+      });
+
+      function saveEdit() {
+        const newText = input.value.trim();
+        if (newText !== "") {
+          tasks[i] = newText;
+          localStorage.setItem("mytasks", JSON.stringify(tasks));
+          render(tasks);
+        } else {
+          render(tasks);
+        }
+      }
     });
   }
 }
