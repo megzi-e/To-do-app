@@ -133,7 +133,7 @@ function render(task) {
       const input = document.createElement("input");
 
       input.type = "text";
-      input.value = currentText;
+      input.value = currentText.trim();
       input.className = "edit-input";
       input.value.trim()
 
