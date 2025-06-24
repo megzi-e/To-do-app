@@ -7,7 +7,7 @@ body {
   background-size: 30px 30px;
   display: flex;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 600px;
   min-width: 350px;
   box-sizing: border-box;
   padding: 250px 24px 24px 24px;
@@ -153,4 +153,10 @@ cursor: pointer;
 
 .edit-input:focus {
   outline: none;
+}
+
+@media only screen and (max-width: 600px) {
+  body{
+    padding-top: 64px;
+  }
 }
