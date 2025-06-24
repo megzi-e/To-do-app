@@ -1,4 +1,6 @@
-let tasks = [];
+let tasks = [
+   { text: "", done: false },
+];
 const taskBtn = document.getElementById("task-btn");
 const inputEL = document.getElementById("task-input");
 const todoList = document.querySelector(".todolist");
@@ -11,9 +13,10 @@ if (myTasks) {
 
 inputEL.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
-    tasks.unshift(inputEL.value);
+    tasks.unshift({ text: inputEL.value, done: false });
     localStorage.setItem("mytasks", JSON.stringify(tasks));
     render(tasks);
+    inputEL.value = "";
   }
   if (value === "") return;
 });
@@ -22,7 +25,7 @@ taskBtn.addEventListener("click", function () {
   const value = inputEL.value.trim();
   if (value === "") return;
 
-  tasks.unshift(inputEL.value);
+  tasks.unshift({ text: inputEL.value, done: false });
   inputEL.value = "";
   localStorage.setItem("mytasks", JSON.stringify(tasks));
   render(tasks);
@@ -32,10 +35,14 @@ function render(task) {
   let taskList = "";
 
   for (let i = 0; i < task.length; i++) {
+
+    const checked = tasks[i].done ? "checked" : "";
+    const textStyle = tasks[i].done ? 'style="text-decoration: line-through;"' : "";
+
     taskList += `<div class="listitem">
             <div class="listname">
-              <input type="checkbox" id="checkbox">
-              <p class="task-name">${task[i]} </p>  
+              <input type="checkbox" id="checkbox" data-index="${i}" ${checked}>
+              <p class="task-name" ${textStyle} >${task[i].text} </p>  
             </div>
           <button id="delete-btn" data-index="${i}">
             <svg
@@ -102,14 +109,12 @@ function render(task) {
 
   for (let i = 0; i < checkTask.length; i++) {
     checkTask[i].addEventListener("change", function () {
-      const parent = this.parentElement;
-      const taskText = parent.querySelector("p");
 
-      if (this.checked) {
-        taskText.style.textDecoration = "line-through";
-      } else {
-        taskText.style.textDecoration = "none";
-      }
+      const index = this.dataset.index;
+      tasks[index].done = this.checked; // update status
+      localStorage.setItem("mytasks", JSON.stringify(tasks));
+      render(tasks); // re-render to apply new style
+
     });
   }
 
@@ -150,7 +155,7 @@ function render(task) {
       function saveEdit() {
         const newText = input.value.trim();
         if (newText !== "") {
-          tasks[i] = newText;
+          tasks[i].text = newText;
           localStorage.setItem("mytasks", JSON.stringify(tasks));
           render(tasks);
         } else {
