@@ -11,7 +11,7 @@ if (myTasks) {
 
 inputEL.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
-    tasks.push(inputEL.value);
+    tasks.unshift(inputEL.value);
     localStorage.setItem("mytasks", JSON.stringify(tasks));
     render(tasks);
   }
@@ -22,7 +22,7 @@ taskBtn.addEventListener("click", function () {
   const value = inputEL.value.trim();
   if (value === "") return;
 
-  tasks.push(inputEL.value);
+  tasks.unshift(inputEL.value);
   inputEL.value = "";
   localStorage.setItem("mytasks", JSON.stringify(tasks));
   render(tasks);
