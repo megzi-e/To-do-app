@@ -114,9 +114,26 @@ body {
 }
 
 #checkbox {
-    width: 16px;
-    height: 16px;
-    margin: 0px;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+
+  color: currentColor;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+#checkbox:checked{
+  background-color: #229eff;
+  background-image: url("/checkmark-2.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
 }
 
 #delete-all{
